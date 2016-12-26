@@ -6,22 +6,13 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
 <script type="text/javascript">
 	function initialize() {
-		var centerlatlng = new google.maps.LatLng(59.874355, 10.813590);
+		var centerlatlng = new google.maps.LatLng(59.726209, 10.098625);
 		var myOptions = {
 			zoom: 12,
 			center: centerlatlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-		var latlng = new google.maps.LatLng(59.870766, 10.811087);
-		var img = new google.maps.MarkerImage('C:\Users\pizzax\Anaconda2\lib\site-packages\gmplot\markers/FF0000.png');
-		var marker = new google.maps.Marker({
-		title: "COLLISION_TRUE",
-		icon: "",
-		position: latlng
-		});
-		marker.setMap(map);
 
 var coords = [
 new google.maps.LatLng(59.872055, 10.790033),
@@ -369,9 +360,10 @@ polygon.setMap(map);
 
 
 var coords = [
-new google.maps.LatLng(59.872858, 10.807885),
-new google.maps.LatLng(59.880711, 10.812494),
-new google.maps.LatLng(59.864397, 10.801769),
+new google.maps.LatLng(59.576363, 9.284128),
+new google.maps.LatLng(59.622238, 9.377454),
+new google.maps.LatLng(59.576363, 9.470781),
+new google.maps.LatLng(59.530489, 9.377454),
 ];
 
 var polygon = new google.maps.Polygon({
