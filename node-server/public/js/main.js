@@ -28233,11 +28233,11 @@
 	function d3init() {
 		var svg = d3.select("svg").attr("width", 2000).attr("height", 2000);
 
-		d3.json("/json/kc.json", function (error, nj) {
+		d3.json("/json/data.json", function (error, nj) {
 			// scaling our geojson (too big values -> NaN problem)
 			var minX,
 			    minY,
-			    scaling = 0.00002,
+			    scaling = 1000000,
 			    delta = 0;
 			// CORRECT FEATURES, NOT COORDINATES!
 			nj.features.forEach(function (shape) {
@@ -28246,8 +28246,8 @@
 					if (!minY || el[1] < minY) minY = el[1];
 				});
 			});
-			minX = 244041.017738;
-			minY = 6658289.58665;
+			minX = 0; //244041.017738;
+			minY = 0; //6658289.58665;
 			//minY = 6548768.82; // check that
 			var scaledCoord = nj.features.map(function (shape) {
 				return shape.geometry.coordinates[0].map(function (el) {
@@ -28255,14 +28255,13 @@
 				});
 			});
 			nj.features.forEach(function (_, sIndex) {
-				console.log(sIndex);
 				nj.features[sIndex].geometry.coordinates[0] = scaledCoord[sIndex];
 			});
 
 			if (error) throw error;
 			var land = topojson.topology({ track: nj });
 			//console.log(land);
-			var path = d3.geoPath().projection(d3.geoMercator().scale(50000).translate([500, 1300]));
+			var path = d3.geoPath().projection(d3.geoMercator().scale(35)); //.scale(50000));//.translate([500,1300]));
 			var world = topojson.feature(land, {
 				type: "GeometryCollection",
 				geometries: land.objects.track.geometries
