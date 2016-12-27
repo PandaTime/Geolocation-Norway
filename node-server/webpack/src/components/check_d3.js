@@ -9,7 +9,7 @@ function d3init(){
 
 
 
-    d3.json("/json/kc.json", function(error, nj) {
+    d3.json("/json/data.json", function(error, nj) {
 		// scaling our geojson (too big values -> NaN problem)
 		var minX, minY,
 			scaling = 0.00002,
